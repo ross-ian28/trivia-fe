@@ -14,8 +14,10 @@ export default function Question10(props) {
   useEffect(() => {
     const currentQuestion = questions.questions[9];
     const answers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer);
-    const shuffledAnswers = shuffle(answers);
-    setQuestion({ ...currentQuestion, answers: shuffledAnswers });
+    if ((questions.questions[0].correct_answer !== "True") || (questions.questions[0].correct_answer !== "False")) {
+      const shuffledAnswers = shuffle(answers);
+      setQuestion({ ...currentQuestion, answers: shuffledAnswers });
+    }
   }, []);
 
   function shuffle(array) {
@@ -48,9 +50,10 @@ export default function Question10(props) {
   }
 
   return (
-    <div>
+    <div className="question-container">
       <h1>Question 10/10</h1>
       <h2>{question.question}</h2>
+      <div className="form-container">
       <form onSubmit={handleSubmit}>
         {question.answers && question.answers.map((answer) => (
           <div key={answer}>
@@ -65,9 +68,11 @@ export default function Question10(props) {
             </label>
           </div>
         ))}
-        { !nextButton && <button type="submit">Submit</button> }
+        { !nextButton && <button className="question-button" type="submit">Submit</button> }
       </form>
-       { nextButton && <button className="button" onClick={handleNext}>Finish Quiz</button>}
+      <div className="next-button-container">
+         { nextButton && <button className="question-button" onClick={handleNext}>Finish Quiz</button>}
+     </div></div>
       <p>{resultMessage}</p>
     </div>
   );

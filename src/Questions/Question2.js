@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
+import "./Questions.css"
 
 export default function Question2(props) {
   const location = useLocation();
@@ -10,12 +11,14 @@ export default function Question2(props) {
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [resultMessage, setResultMessage] = useState("");
   const [nextButton, setNextButton] = useState(false);
-  
+
   useEffect(() => {
     const currentQuestion = questions.questions[1];
     const answers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer);
-    const shuffledAnswers = shuffle(answers);
-    setQuestion({ ...currentQuestion, answers: shuffledAnswers });
+    if ((questions.questions[0].correct_answer !== "True") || (questions.questions[0].correct_answer !== "False")) {
+      const shuffledAnswers = shuffle(answers);
+      setQuestion({ ...currentQuestion, answers: shuffledAnswers });
+    }
   }, []);
 
   function shuffle(array) {
@@ -48,9 +51,10 @@ export default function Question2(props) {
   }
 
   return (
-    <div>
+    <div className="question-container">
       <h1>Question 2/10</h1>
       <h2>{question.question}</h2>
+      <div className="form-container">
       <form onSubmit={handleSubmit}>
         {question.answers && question.answers.map((answer) => (
           <div key={answer}>
@@ -65,9 +69,11 @@ export default function Question2(props) {
             </label>
           </div>
         ))}
-        { !nextButton && <button type="submit">Submit</button> }
+        { !nextButton && <button className="question-button" type="submit">Submit</button> }
       </form>
-       { nextButton && <button className="button" onClick={handleNext}>Next Question</button>}
+      <div className="next-button-container">
+         { nextButton && <button className="question-button" onClick={handleNext}>Next Question</button>}
+      </div></div>
       <p>{resultMessage}</p>
     </div>
   );
