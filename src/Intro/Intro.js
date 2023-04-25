@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import "./Intro.css"
 export default function Intro() {
   const [difficulty, setDifficulty] = useState("easy");
   const [isPending, setIsPending] = useState(false);
@@ -34,17 +34,20 @@ export default function Intro() {
     };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Select an option:
-        <select value={difficulty} onChange={handleChange}>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
-      </label>
-      { !isPending && <button className="button" type="submit">Submit</button>}
-      { isPending && <button className="button" type="submit" disabled>Submitting</button>}
-    </form>
+    <div className="intro-container">
+      <h1>Welcome to Trivia!</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Select an option:
+          <select value={difficulty} onChange={handleChange}>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        { !isPending && <button className="intro-button" type="submit">Submit</button>}
+        { isPending && <button className="intro-button" type="submit" disabled>Submitting</button>}
+      </form>
+    </div>
   );
 }

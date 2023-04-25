@@ -1,16 +1,15 @@
-import './App.css';
-import Intro from "./Intro.js";
-import Question1 from "./Questions/Question1.js";
-import Question2 from "./Questions/Question2.js";
-import Question3 from "./Questions/Question3.js";
-import Question4 from "./Questions/Question4.js";
-import Question5 from "./Questions/Question5.js";
-import Question6 from "./Questions/Question6.js";
-import Question7 from "./Questions/Question7.js";
-import Question8 from "./Questions/Question8.js";
-import Question9 from "./Questions/Question9.js";
-import Question10 from "./Questions/Question10.js";
-import Result from "./Results.js";
+import Intro from "./../Intro/Intro.js";
+import Question1 from "./../Questions/Question1.js";
+import Question2 from "./../Questions/Question2.js";
+import Question3 from "./../Questions/Question3.js";
+import Question4 from "./../Questions/Question4.js";
+import Question5 from "./../Questions/Question5.js";
+import Question6 from "./../Questions/Question6.js";
+import Question7 from "./../Questions/Question7.js";
+import Question8 from "./../Questions/Question8.js";
+import Question9 from "./../Questions/Question9.js";
+import Question10 from "./../Questions/Question10.js";
+import Result from "./../Results/Results.js";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
