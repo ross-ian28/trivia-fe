@@ -5,14 +5,14 @@ export default function Question6(props) {
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
-  const questions = JSON.parse(searchParams.get("data"));
+  const [questions, setQuestions] = useState(JSON.parse(searchParams.get("data")));
   const [question, setQuestion] = useState({});
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [resultMessage, setResultMessage] = useState("");
   const [nextButton, setNextButton] = useState(false);
 
   useEffect(() => {
-    const currentQuestion = questions[5];
+    const currentQuestion = questions.questions[5];
     const answers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer);
     const shuffledAnswers = shuffle(answers);
     setQuestion({ ...currentQuestion, answers: shuffledAnswers });
@@ -30,6 +30,10 @@ export default function Question6(props) {
     event.preventDefault();
     if (selectedAnswer === question.correct_answer) {
       setResultMessage('You got it right!');
+      setQuestions((prevQuestions) => ({
+        ...prevQuestions,
+        score: prevQuestions.score + 1,
+      }));
     } else {
       setResultMessage(`Sorry, that was incorrect. The correct answer was ${question.correct_answer}`);
     }
