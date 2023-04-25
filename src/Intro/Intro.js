@@ -38,7 +38,7 @@ export default function Intro() {
       <h1>Welcome to Trivia!</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Select an option:
+          Select a difficulty:
           <select value={difficulty} onChange={handleChange}>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
