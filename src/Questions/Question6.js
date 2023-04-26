@@ -14,7 +14,9 @@ export default function Question6(props) {
   useEffect(() => {
     const currentQuestion = questions.questions[5];
     const answers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer);
-    if ((questions.questions[0].correct_answer !== "True") || (questions.questions[0].correct_answer !== "False")) {
+    if (currentQuestion.correct_answer === "True" || currentQuestion.correct_answer === "False") {
+      setQuestion({ ...currentQuestion, answers: ["True", "False"] });
+    } else {
       const shuffledAnswers = shuffle(answers);
       setQuestion({ ...currentQuestion, answers: shuffledAnswers });
     }
@@ -48,7 +50,7 @@ export default function Question6(props) {
     });
     navigate(`/question7?${params}`);
   }
-
+  console.log(question)
   return (
     <div className="question-container">
       <h1>Question 6/10</h1>
