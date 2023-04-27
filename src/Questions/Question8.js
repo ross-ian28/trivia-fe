@@ -12,7 +12,7 @@ export default function Question8(props) {
   const [nextButton, setNextButton] = useState(false);
 
   useEffect(() => {
-    const currentQuestion = questions.questions[5];
+    const currentQuestion = questions.questions[7];
     const answers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer);
     if (currentQuestion.correct_answer === "True" || currentQuestion.correct_answer === "False") {
       setQuestion({ ...currentQuestion, answers: ["True", "False"] });
