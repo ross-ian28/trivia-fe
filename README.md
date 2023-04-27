@@ -2,7 +2,7 @@
 This is the front-end repo for the trivia fun game. Check out the back-end repo [here](https://github.com/ross-ian28/trivia-be) 
 
 ## About this project
-A basic trivia game where you can choose the difficulty level of your questions. You'll be asked 10 questions from random categories and your total will be added up at the end.
+A basic trivia game where you can choose the difficulty level and category of your questions. You'll be asked 10 questions from the selected category and your total will be added up at the end.
 
 ## SetUp for Local
 1. Fork this Repo
