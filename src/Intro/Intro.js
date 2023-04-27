@@ -31,6 +31,71 @@ export default function Intro() {
       })
     };
 
+  const easyCategories = ["9", "10", "11", "12", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "26", "27", "28", "29", "31", "32"];
+  const mediumCategories = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32"];
+  const hardCategories = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "27", "28", "29", "31", "32"];
+
+  const filteredCategories =
+    difficulty === "easy"
+    ? easyCategories
+    : difficulty === "medium"
+    ? mediumCategories
+    : hardCategories;
+
+    function getCategoryName(catId) {
+    switch (catId) {
+      case "9":
+        return "General Knowledge";
+      case "10":
+        return "Books";
+      case "11":
+        return "Film";
+      case "12":
+        return "Music";
+      case "13":
+        return "Musicals & Theatres";
+      case "14":
+        return "Television";
+      case "15":
+        return "Video Games";
+      case "16":
+        return "Board Games";
+      case "17":
+        return "Science & Nature";
+      case "18":
+        return "Science: Computers";
+      case "19":
+        return "Science: Mathematics";
+      case "20":
+        return "Mythology";
+      case "21":
+        return "Sports";
+      case "22":
+        return "Geography";
+      case "23":
+        return "History";
+      case "24":
+        return "Politics";
+      case "25":
+        return "Art";
+      case "26":
+        return "Celebrities";
+      case "27":
+        return "Animals";
+      case "28":
+        return "Vehicles";
+      case "29":
+        return "Comics";
+      case "30":
+        return "Science: Gadgets";
+      case "31":
+        return "Anime & Manga";
+      case "32":
+        return "Cartoon & Animation";
+      default:
+        return "";
+      };
+    }
   return (
     <div className="intro-container">
       <h1>Welcome to Trivia!</h1>
@@ -47,30 +112,11 @@ export default function Intro() {
           Select a Category:
           <select value={category} onChange={e => setCategory(e.target.value)}>
             <option value="">Any Categories</option>
-            <option value="9">General Knowledge</option>
-            <option value="10">Books</option>
-            <option value="11">Film</option>
-            <option value="12">Music</option>
-            <option value="13">Musicals & Theatres</option>
-            <option value="14">Television</option>
-            <option value="15">Video Games</option>
-            <option value="16">Board Games</option>
-            <option value="29">Comics</option>
-            <option value="31">Anime & Manga</option>
-            <option value="32">Cartoon & Animation</option>
-            <option value="17">Science & Nature</option>
-            <option value="18">Science: Computers</option>
-            <option value="19">Science: Mathematics</option>
-            <option value="30">Science: Gadgets</option>
-            <option value="20">Mythology</option>
-            <option value="21">Sports</option>
-            <option value="22">Geography</option>
-            <option value="23">History</option>
-            <option value="24">Politics</option>
-            <option value="25">Art</option>
-            <option value="26">Celebrities</option>
-            <option value="27">Animals</option>
-            <option value="28">Vehicles</option>
+            {filteredCategories.map(cat => (
+              <option key={cat} value={cat}>
+                {getCategoryName(cat)}
+              </option>
+            ))}
           </select>
         </label>
         { !isPending && <button className="intro-button" type="submit">Submit</button>}
