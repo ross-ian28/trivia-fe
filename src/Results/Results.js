@@ -8,7 +8,7 @@ export default function Result() {
 
   return (
     <div className="result-container">
-      <h2>"You finished the quiz!"</h2>
+      <h2>"You finished!"</h2>
       <h3>You got a { questions.score }/10</h3>
       <a href="/"><button className="back-to-home-button">Play Again?</button></a>
     </div>
