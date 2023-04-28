@@ -14,3 +14,16 @@ A basic trivia game where you can choose the difficulty level and category of yo
 
 ## Deployment
 Project deployment coming soon...
+
+## Features
+*Start a Quiz*
+
+![Change Range](src/Triva-Intro.png)
+
+*Answer a Question*
+
+![Nav](src/Answer-Question.png)
+
+*Get Quiz Results*
+
+![Event Form](src/Trivia-Results.png)
