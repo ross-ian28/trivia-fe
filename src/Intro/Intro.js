@@ -11,7 +11,7 @@ export default function Intro() {
     event.preventDefault();
     setIsPending(true);
 
-    await fetch("http://localhost:4000/api/v1/questions", {
+    await fetch("https://trivia-be-i9rw.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
