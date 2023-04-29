@@ -50,7 +50,6 @@ export default function Question6(props) {
     });
     navigate(`/question7?${params}`);
   }
-  console.log(question)
   return (
     <div className="question-container">
       <h1>Question 6/10</h1>
