@@ -19,7 +19,8 @@ export default function Intro() {
       body: JSON.stringify({
         difficulty: difficulty,
         category: category
-      })
+      }),
+      credentials: 'include'
     })
     .then(res => res.json())
     .then(data => {
