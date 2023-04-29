@@ -11,7 +11,7 @@ export default function Intro() {
     event.preventDefault();
     setIsPending(true);
 
-    await fetch("https://trivia-api-edqv.onrender.com", {
+    await fetch("https://trivia-api-edqv.onrender.com/api/v1/questions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
