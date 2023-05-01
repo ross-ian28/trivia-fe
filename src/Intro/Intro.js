@@ -24,7 +24,6 @@ export default function Intro() {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
         const params = new URLSearchParams({
           data: JSON.stringify(data)
         });
@@ -121,7 +120,7 @@ export default function Intro() {
           </select>
         </label>
         { !isPending && <button className="intro-button" type="submit">Submit</button>}
-        { isPending && <button className="intro-button" type="submit" disabled>Creating Questions</button>}
+        { isPending && <button className="intro-button" type="submit" disabled>Creating Questions - This might take a bit</button>}
       </form>
     </div>
   );
