@@ -101,8 +101,8 @@ export default function Intro() {
       <h1>Welcome to Trivia!</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Select a difficulty:
-          <select value={difficulty} onChange={e => setDifficulty(e.target.value)}>
+          Select a Difficulty:
+          <select id="difficulty-select" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
@@ -110,7 +110,7 @@ export default function Intro() {
         </label>
         <label>
           Select a Category:
-          <select value={category} onChange={e => setCategory(e.target.value)}>
+          <select id="category-select" value={category} onChange={e => setCategory(e.target.value)}>
             <option value="">Any Categories</option>
             {filteredCategories.map(cat => (
               <option key={cat} value={cat}>
