@@ -15,6 +15,10 @@ Deployed site [here](https://trivia-ross-ian28.vercel.app/)
 5. Run `npm start` to run your server
 6. (Make sure both front-end and back-end servers are running at the same time)
 
+For Cypress Testing:
+1. Run `npx cypress open`
+2. Follow the prompts in the browser, and select the spec file you want to run
+
 ## Features
 *Start a Quiz*
 
