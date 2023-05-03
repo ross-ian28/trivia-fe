@@ -30,7 +30,7 @@ describe('Intro spec', () => {
     });
   });
 
-  // Check
+  // Check page functionality
   it('should be able select different categories and submit', () => {
     cy.get('#difficulty-select').select('Medium')
     .should('have.value', 'medium');
