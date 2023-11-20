@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
+import { getQuestions } from "./Intro.js";
 import "./Questions.css"
 
 export default function Question1(props) {
   const location = useLocation();
   const navigate = useNavigate();
+  // Set questions equal to Import intro questions method
   const searchParams = new URLSearchParams(location.search);
   const [questions, setQuestions] = useState(JSON.parse(searchParams.get("data")));
-  const [question, setQuestion] = useState({});
+  const [question, setQuestion] = useState(1);
+  const [questionNum, setQuestionNum] = useState(1);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [resultMessage, setResultMessage] = useState("");
   const [nextButton, setNextButton] = useState(false);
 
   useEffect(() => {
+    // Refactor line 
     const currentQuestion = questions.questions[0];
     const answers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer);
     if (currentQuestion.correct_answer === "True" || currentQuestion.correct_answer === "False") {
@@ -22,6 +26,10 @@ export default function Question1(props) {
       setQuestion({ ...currentQuestion, answers: shuffledAnswers });
     }
   }, []);
+
+  function loadQuestions() {
+    getQuestions();
+  }
 
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -47,16 +55,16 @@ export default function Question1(props) {
     setNextButton(true);
   };
 
-  const handleNext = (event) => {
-    const params = new URLSearchParams({
-      data: JSON.stringify(questions)
-    });
-    navigate(`/question2?${params}`);
+
+  function handleNext() {
+    setQuestionNum(questionNum += 1);
+    navigate(`/question${questionNum}`)
   }
+  // Add 1 to `/question{questionNumber}` everytime next button is clicked
 
   return (
     <div className="question-container">
-      <h1>Question 1/10</h1>
+      <h1>Question {questionNum}/10</h1>
       <h2>{question.question}</h2>
       <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -81,4 +89,4 @@ export default function Question1(props) {
       <p>{resultMessage}</p>
     </div>
   );
-}
+};
